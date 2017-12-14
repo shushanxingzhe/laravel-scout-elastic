@@ -51,7 +51,7 @@ class ElasticsearchEngine extends Engine
             $params['body'][] = [
                 'update' => [
                     '_id' => $model->getKey(),
-                    '_index' => $this->index,
+                    '_index' => $this->getIndex($model),
                     '_type' => $model->searchableAs(),
                 ]
             ];
@@ -79,7 +79,7 @@ class ElasticsearchEngine extends Engine
             $params['body'][] = [
                 'delete' => [
                     '_id' => $model->getKey(),
-                    '_index' => $this->index,
+                    '_index' => $this->getIndex($model),
                     '_type' => $model->searchableAs(),
                 ]
             ];
@@ -133,7 +133,7 @@ class ElasticsearchEngine extends Engine
     protected function performSearch(Builder $builder, array $options = [])
     {
         $params = [
-            'index' => $this->index,
+            'index' => $this->getIndex($builder->model),
             'type' => $builder->index ?: $builder->model->searchableAs(),
             'body' => [
                 'query' => [
@@ -252,5 +252,10 @@ class ElasticsearchEngine extends Engine
         return collect($builder->orders)->map(function($order) {
             return [$order['column'] => $order['direction']];
         })->toArray();
+    }
+
+    public function getIndex($model)
+    {
+        return $this->index . '_' . $model->searchableAs();
     }
 }

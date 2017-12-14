@@ -2,7 +2,7 @@
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
-This package makes is the [Elasticsearch](https://www.elastic.co/products/elasticsearch) driver for Laravel Scout.
+This package makes is the [Elasticsearch](https://www.elastic.co/products/elasticsearch) driver for Laravel Scout.This Package support Elasticsearch 6.x and solve [the Multiple mapping types not supported in indices problem](https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html)
 
 ## Contents
 
@@ -16,7 +16,7 @@ This package makes is the [Elasticsearch](https://www.elastic.co/products/elasti
 You can install the package via composer:
 
 ``` bash
-composer require tamayo/laravel-scout-elastic
+composer require shushanxingzhe/laravel-scout-elastic
 ```
 
 You must add the Scout service provider and the package service provider in your app.php config:
@@ -58,7 +58,7 @@ After you've published the Laravel Scout package configuration:
 Now you can use Laravel Scout as described in the [official documentation](https://laravel.com/docs/5.3/scout)
 ## Credits
 
-- [Erick Tamayo](https://github.com/ericktamayo)
+- [shushanxingzhe](https://github.com/shushanxingzhe)
 - [All Contributors](../../contributors)
 
 ## License
